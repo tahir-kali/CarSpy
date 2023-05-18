@@ -337,7 +337,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        private fun toLocalHost(data: String){
+        private fun toLocalHost(data: String) {
             val client = OkHttpClient().newBuilder()
                 .build()
             val mediaType = MediaType.parse("application/json")
@@ -363,10 +363,12 @@ class MainActivity : AppCompatActivity() {
 
 
         }
+
         private fun writeToFile(data: String) {
 
         }
-        private fun writeToBin(data: String){
+
+        private fun writeToBin(data: String) {
             print("Writing to bin----------------*****************************************************************");
             val client = OkHttpClient().newBuilder()
                 .build()
@@ -383,6 +385,7 @@ class MainActivity : AppCompatActivity() {
                 .build()
             val response = client.newCall(request).execute()
         }
+
         private fun sendToSlack(data: String) {
             print("*************** Sending Data To Slack")
             val client = OkHttpClient().newBuilder()
@@ -396,14 +399,16 @@ class MainActivity : AppCompatActivity() {
                 .build()
             val response = client.newCall(request).execute()
         }
+
         @JavascriptInterface
         fun openBridge() {
             sentDataToServer = false
         }
+
         @JavascriptInterface
         fun sendDataToServer(data: String) {
             print("---------------Calling---------------sendDataToServer-----")
-            if (!sentDataToServer){
+            if (!sentDataToServer) {
                 toLocalHost(data)
                 sentDataToServer = true
 //                if(toSlack === true){
